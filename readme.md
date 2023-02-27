@@ -13,3 +13,9 @@ const stack = {
     };
     ```
 ````
+
+
+Créer une fonction qui prend une chaîne de caractères en paramètre et remplace tous ses espaces par des underscores.
+
+
+
