@@ -1,16 +1,15 @@
-const underscorize = (chaine) => {
-    if (!chaine) {
-        throw new Error('chaine is not defined');
-    }
-    return chaine.split(' ').join('_');
-}
+import fs from "fs"
 
 
-let chaine = '';
 
-try {
-    chaine = underscorize(chaine);
-} catch (e) {
-    console.error(e);
-}
+// fs.writeFile("text.json", JSON.stringify({a: 'test'}), () => {
+//     console.log("done")
+// })
 
+console.log("not done")
+
+fs.readFile("text.json", (err, data) => {
+    if (err) throw err
+
+    console.log(Buffer.from(data).toString())
+})
