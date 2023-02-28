@@ -1,23 +1,15 @@
-import * as http from "http";
-import cs from "cowsay";
+import fs from "fs";
 
-const handleRequest = (req: http.IncomingMessage, res: http.ServerResponse) => {
-    let payload = "";
+const filename = "file.txt";
 
-    req.on("data", (chunk) => {
-      payload += chunk;
-    });
+fs.readFile(filename, (err, data) => {
+  if (err) throw err;
 
-    req.on("end", () => {
-      res.writeHead(200);
+  fs.watchFile(filename, (curr, prev) => {
+    console.log(`rewriting file at ${curr.mtime}`);
 
-      res.end(
-          cs.say({ text: payload }),
-
-      );
-    });
-
-}
-
-
-http.createServer(handleRequest).listen(3333, () => console.log("Listening on port 3333"));
+    fs.writeFile(filename, data, "utf8", () =>
+      console.log("Rewrote file back to normal.")
+    );
+  });
+});
