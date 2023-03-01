@@ -11,7 +11,7 @@ function countbytes(str) {
         contentSize += chunk.toString().split(/[^A-Za-zçéèêëà]/).filter(s => s).length;
     });
     str.on("end", () => {
-        console.log(`buffer is ${contentSize} bytes long ! `);
+        console.log(`buffer is ${contentSize} words long ! `);
     });
 }
 countbytes(stream);
