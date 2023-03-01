@@ -56,6 +56,33 @@ router.post("/login", (req, res) => {
     const connectedUser = fileteredUsers[0];
 
     (req.session as any).user = connectedUser;
+
+    res.status(200);
+    res.send({
+      message: "logged in !",
+      status: "OK",
+    });
   }
+});
+
+router.delete("/signout", (req, res) => {
+  if (!(req.session as any).user) {
+    res.status(401);
+    res.send({
+      message: "You're not logged in !",
+      status: "BadRequest",
+    });
+  }
+
+  const username = (req.session as any).user.username
+  req.session.destroy(() => {
+    console.log(`disconnecting ${username}`);
+  });
+
+  res.status(200);
+  res.send({
+    message: "You are being disconnected",
+    status: "OK",
+  });
 });
 export default router;
