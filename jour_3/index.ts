@@ -1,4 +1,5 @@
 import express from "express"
+import thingsRouter from "./things"
 
 const port = 3000;
 
@@ -9,8 +10,7 @@ app.get("/", (req, res) => {
     res.send("hello")
 })
 
-app.post("/hi", (req, res) => {
-    res.send("hi")
-})
+
+app.use("/things", thingsRouter)
 
 app.listen(port)
