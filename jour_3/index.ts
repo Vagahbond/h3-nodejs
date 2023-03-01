@@ -2,6 +2,8 @@ import express from "express"
 import thingsRouter from "./things"
 import bodyParser from "body-parser"
 import multer from "multer"
+import cookieParser from "cookie-parser"
+import expressSession from "express-session"
 
 const upload = multer();
 
@@ -14,6 +16,10 @@ app.use(bodyParser.json())
 
 app.use(bodyParser.urlencoded())
 
+app.use(cookieParser())
+
+app.use(expressSession({secret: "secret"}))
+
 app.use(upload.array("filename"))
 
 app.use('/things', (req, res, next) => {
@@ -24,8 +30,15 @@ app.use('/things', (req, res, next) => {
 
 
 app.get("/", (req, res) => {
-    console.log(req.body.message)
-    res.send(req.body)
+    if ((req.session as any).page_views) {
+        (req.session as any).page_views++
+    } else {
+        (req.session as any).page_views = 1
+    }
+
+    // res.cookie("user", "unknown", { maxAge: 360000 })
+    res.clearCookie("user")
+    res.send(`Page visited ${(req.session as any).page_views} times.`)
 })
 
 
