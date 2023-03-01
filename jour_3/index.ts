@@ -1,5 +1,6 @@
 import express from "express"
 import thingsRouter from "./things"
+import usersRouter from "./users/UsersController"
 import bodyParser from "body-parser"
 import multer from "multer"
 import cookieParser from "cookie-parser"
@@ -43,5 +44,6 @@ app.get("/", (req, res) => {
 
 
 app.use("/things", thingsRouter)
+app.use("/users", usersRouter)
 
 app.listen(port)
