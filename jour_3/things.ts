@@ -6,8 +6,9 @@ router.get("/", (req, res) => {
     res.send("here are the things")
 })
 
-router.delete("/", (req, res) => {
-    res.send("delething the thing...")
+router.delete("/:id", (req, res) => {
+
+    res.send(`deleting the ${req.params.id}th thing...`)
 })
 
 export default router
