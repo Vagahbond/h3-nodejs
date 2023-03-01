@@ -43,7 +43,21 @@ app.get("/", (req, res) => {
 })
 
 
+app.use("/things", (req, res, next) => {
+    (req.session as any).user ?
+    next() :
+    res.status(401)
+    res.send(
+        {
+            message: "Please login to access this resource",
+            status: "unauthorized"
+        }
+    )
+})
+
 app.use("/things", thingsRouter)
+
+
 app.use("/users", usersRouter)
 
 app.listen(port)
