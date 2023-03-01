@@ -1,5 +1,6 @@
 import express from "express";
 import IUser from "./IUser";
+import ILoginDTO from "./ILoginDTO";
 
 const router = express.Router();
 
@@ -15,12 +16,12 @@ router.post("/signin", (req, res) => {
   }
 
   if (users.filter((u) => u.username == req.body.username).length > 0) {
-    res.status(400)
+    res.status(400);
     res.send({
-        message: "User already exists",
-        status: "BadRequest",
-      })
-}
+      message: "User already exists",
+      status: "BadRequest",
+    });
+  }
 
   const user: IUser = {
     age: req.body.age,
@@ -32,5 +33,29 @@ router.post("/signin", (req, res) => {
 
   res.status(201);
   res.send({ message: "User created!", status: "Created" });
+});
+
+router.post("/login", (req, res) => {
+  const body = req.body as ILoginDTO;
+  if (!body.password || !body.username) {
+    res.status(400);
+    res.send({
+      message: "Pls gib username and password",
+      status: "BadRequest",
+    });
+  }
+
+  const fileteredUsers = users.filter((u) => u.username == body.username);
+  if (fileteredUsers.length < 1) {
+    res.status(401);
+    res.send({
+      message: "User does not exist",
+      status: "Unauthorized",
+    });
+
+    const connectedUser = fileteredUsers[0];
+
+    (req.session as any).user = connectedUser;
+  }
 });
 export default router;
