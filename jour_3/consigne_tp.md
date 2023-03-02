@@ -64,7 +64,7 @@ interface Reservation {
   chambre: number // numéro de la chambre louée
 }
 ```
-
+Un `client` ne peut interagir(voir, modifier, anuller) avec que ses reservations
 Seul un `client` peut créer une `réservation`, ou l’annuler (pas en la supprimant, mais en mettant son champ `cancelled` a `true`
 Lors de la création de la `réservation`, on doit vérifier que la chambre est disponible sur le créneau demandé.
 
