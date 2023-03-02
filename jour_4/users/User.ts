@@ -2,11 +2,10 @@ import joi from 'joi';
 import mongoose from 'mongoose';
 
 export const CreateUserSchema = joi.object({
-    id: joi.number().integer().required(),
     name: joi.string().required(),
     email: joi.string().email().required(),
     password: joi.string().required(),
-});
+}).required();
 
 
 const userSchema = new mongoose.Schema({

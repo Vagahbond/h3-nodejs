@@ -7,6 +7,8 @@ mongoose.connect("mongodb://anon:marbleCake@localhost:27017/my_db")
 
 const app = express()
 
+app.use(express.json())
+
 app.get("/", (req, res) => {
     res.send("Hello World")
 })
