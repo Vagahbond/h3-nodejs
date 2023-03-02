@@ -7,12 +7,21 @@ export const CreateUserSchema = joi.object({
     password: joi.string().required(),
 }).required();
 
+export const UpdateUserSchema = joi.object({
+    name: joi.string().optional(),
+    email: joi.string().email().optional(),
+    password: joi.string().optional(),
+}).required();
 
 const userSchema = new mongoose.Schema({
     id: Number,
-    name: String,
+    name: {
+        type: String,
+    },
     email: String,
-    password: String,
+    password: {
+        type: Object
+    },
     created_at: Date,
     updated_at: Date
  });
