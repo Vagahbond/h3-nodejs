@@ -19,8 +19,8 @@ router.post('/login', async (req, res) => {
     return res.status(400).json({ error: 'Invalid credentials' })
   }
 
-  const userWithToken = generateToken(user.toObject())
-  res.status(200).json(removePassword(userWithToken))
+  const token = generateToken(user.toObject())
+  res.status(200).json(removePassword({...user.toObject(), token}))
 })
 
 export default router
