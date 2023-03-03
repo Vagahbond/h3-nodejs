@@ -18,7 +18,7 @@ Un manager peut consulter toutes les maquêtes.
 
 Un manager peut laisser une approbation ou une désapprobation sur une maquette. Plusieurs manager peuvent laisser leur approbations ou désapprobation sur une seule maquette.
 
-Une fois que tous les managers ont donné leur avis sur une maquette, elle est validée.
+Une fois que tous les managers ont donné leur avis sur une maquette, elle est validée ou refusée.
 
 Les approbations et désapprobation doivent être agrémentés d’un commentaire.
 
