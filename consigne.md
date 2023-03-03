@@ -28,7 +28,7 @@ Les managers sont ajoutés par l’admin.
 
 L’admin peut aussi supprimer n’importe quel compte.
 
-L’admin a moyen de venir un artiste, ce qui ne le supprime pas mais l’empeche de poster de nouvelles maquettes.
+L’admin a moyen de bannir un artiste, ce qui ne le supprime pas mais l’empeche de poster de nouvelles maquettes.
 
 On doit pouvoir retrouver, pour chaque maquette, un nom/url de fichier, un titre, l’artiste l’ayant posté.
 
