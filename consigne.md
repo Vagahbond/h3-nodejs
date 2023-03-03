@@ -18,7 +18,7 @@ Un manager peut consulter toutes les maquêtes.
 
 Un manager peut laisser une approbation ou une désapprobation sur une maquette. Plusieurs manager peuvent laisser leur approbations ou désapprobation sur une seule maquette.
 
-Une fois que tous les managers ont donné leur avis sur une maquette, elle est validée ou refusée.
+Une fois que tous les managers ont donné leur avis sur une maquette, elle est validée ou refusé.
 
 Les approbations et désapprobation doivent être agrémentés d’un commentaire.
 
@@ -28,7 +28,7 @@ Les managers sont ajoutés par l’admin.
 
 L’admin peut aussi supprimer n’importe quel compte.
 
-L’admin a moyen de bannir un artiste, ce qui ne le supprime pas mais l’empeche de poster de nouvelles maquettes.
+L’admin a moyen de banir un artiste, ce qui ne le supprime pas mais l’empeche de poster de nouvelles maquettes.
 
 On doit pouvoir retrouver, pour chaque maquette, un nom/url de fichier, un titre, l’artiste l’ayant posté.
 
